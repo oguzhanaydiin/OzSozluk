@@ -2,7 +2,7 @@
 
 namespace OzSozluk.Api.Domain.Models;
 
-internal class EntryVote : BaseEntity
+public class EntryVote : BaseEntity
 {
     public Guid EntryId { get; set; }
     public VoteType voteType { get; set; }
