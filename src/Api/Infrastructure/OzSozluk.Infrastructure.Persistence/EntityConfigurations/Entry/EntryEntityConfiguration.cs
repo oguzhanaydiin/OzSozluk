@@ -14,6 +14,6 @@ public class EntryEntityConfiguration : BaseEntityConfiguration<Api.Domain.Model
 
         builder.HasOne(i => i.CreatedBy)
                 .WithMany(i => i.Entries)
-                .HasForeignKey(i => i.CreatedBy); //user ve entry arasındaki bire çok ilişkisini belirler
+                .HasForeignKey(i => i.CreatedById); //user ve entry arasındaki bire çok ilişkisini belirler
     }
 }

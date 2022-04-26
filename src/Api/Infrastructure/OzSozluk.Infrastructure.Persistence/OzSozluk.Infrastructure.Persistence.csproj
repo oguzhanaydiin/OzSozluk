@@ -19,7 +19,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\Core\OzSozluk.Api.Domain\OzSozluk.Api.Domain.csproj" />
+		<ProjectReference Include="..\..\Core\OzSozluk.Api.Domain\OzSozluk.Api.Domain.csproj" />
 	</ItemGroup>
 
 </Project>

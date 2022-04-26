@@ -19,7 +19,8 @@ public class EntryCommentFavoriteEntityConfiguration : BaseEntityConfiguration<E
 
         builder.HasOne(i => i.CreatedUser)
                 .WithMany(i => i.EntryCommentsFavorites)
-                .HasForeignKey(i => i.CreatedById);
+                .HasForeignKey(i => i.CreatedById)
+                .OnDelete(DeleteBehavior.Restrict);
 
     }
 }

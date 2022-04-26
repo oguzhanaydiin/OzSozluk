@@ -8,6 +8,9 @@ public class OzSozlukContext : DbContext
 {
     public const string DEFAULT_SCHEMA = "dbo";
 
+    public OzSozlukContext()
+    {
+    }
     public OzSozlukContext(DbContextOptions options) : base(options)
     {
     }
@@ -26,6 +29,19 @@ public class OzSozlukContext : DbContext
     public DbSet<EmailConfirmation> EmailConfirmations { get; set; }
 
     #endregion
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        //parametresiz constructor calistirilinca set etmek icin bu methodu kullandik
+        if (!optionsBuilder.IsConfigured)
+        {
+            var connectionString = "Data Source=(LocalDb)\\MSSQLLocalDB;Database=ozsozluk; Integrated Security=True;";
+            optionsBuilder.UseSqlServer(connectionString, opt =>
+            {
+                opt.EnableRetryOnFailure();
+            });
+        }
+    }
 
     #region AddInitialDateForInserts
     protected override void OnModelCreating(ModelBuilder modelBuilder)
