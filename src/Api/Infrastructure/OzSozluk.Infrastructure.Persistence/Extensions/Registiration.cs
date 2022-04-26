@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using OzSozluk.Api.Application.Interfaces.Repositories;
 using OzSozluk.Infrastructure.Persistence.Context;
+using OzSozluk.Infrastructure.Persistence.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +27,8 @@ public static class Registiration
 
         //var seedData = new SeedData();
         //seedData.SeedAsync(configuration).GetAwaiter().GetResult();
+
+        services.AddScoped<IUserRepository, UserRepository>();
 
         return services;
     }
