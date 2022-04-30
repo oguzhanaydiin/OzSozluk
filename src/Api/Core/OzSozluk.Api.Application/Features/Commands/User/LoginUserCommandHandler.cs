@@ -35,7 +35,7 @@ public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, LoginUs
             throw new DatabaseValidationException("User not found!");
         }
 
-        var encryptedPassword = PasswordEncryptor.Encrypt(dbUser.Password);
+        var encryptedPassword = PasswordEncryptor.Encrypt(request.Password);
 
         if (dbUser.Password != encryptedPassword)
         {
