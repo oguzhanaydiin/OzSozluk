@@ -4,9 +4,9 @@ using OzSozluk.Infrastructure.Persistence.Context;
 
 namespace OzSozluk.Infrastructure.Persistence.Repositories;
 
-public class UserRepository : GenericRepository<User>, IUserRepository
+public class EmailConfirmationRepository : GenericRepository<EmailConfirmation>, IEmailConfirmationRepository
 {
-    public UserRepository(OzSozlukContext dbContext) : base(dbContext)
+    public EmailConfirmationRepository(OzSozlukContext dbContext) : base(dbContext)
     {
     }
 }

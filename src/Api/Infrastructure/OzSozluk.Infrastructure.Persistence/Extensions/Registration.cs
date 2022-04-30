@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace OzSozluk.Infrastructure.Persistence.Extensions;
 
-public static class Registiration
+public static class Registration
 {
     public static IServiceCollection AddInfrastructureRegistiration(this IServiceCollection services, IConfiguration configuration)
     {

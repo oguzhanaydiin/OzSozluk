@@ -4,9 +4,9 @@ using OzSozluk.Infrastructure.Persistence.Context;
 
 namespace OzSozluk.Infrastructure.Persistence.Repositories;
 
-public class UserRepository : GenericRepository<User>, IUserRepository
+public class EntryRepository : GenericRepository<Entry>, IEntryRepository
 {
-    public UserRepository(OzSozlukContext dbContext) : base(dbContext)
+    public EntryRepository(OzSozlukContext dbContext) : base(dbContext)
     {
     }
 }

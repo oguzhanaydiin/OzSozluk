@@ -2,6 +2,6 @@
 
 namespace OzSozluk.Api.Application.Interfaces.Repositories;
 
-public interface IUserRepository : IGenericRepository<User>
+public interface IEntryCommentRepository : IGenericRepository<EntryComment>
 {
 }
