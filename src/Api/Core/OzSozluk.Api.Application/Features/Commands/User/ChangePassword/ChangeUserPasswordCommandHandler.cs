@@ -3,11 +3,6 @@ using OzSozluk.Api.Application.Interfaces.Repositories;
 using OzSozluk.Common.Events.User;
 using OzSozluk.Common.Infrastructure;
 using OzSozluk.Common.Infrastructure.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OzSozluk.Api.Application.Features.Commands.User.ChangePassword;
 
@@ -40,7 +35,7 @@ public class ChangeUserPasswordCommandHandler : IRequestHandler<ChangeUserPasswo
             throw new DatabaseValidationException("Old Password Wrong!");
         }
 
-        dbUser.Password = encryptedPassword;
+        dbUser.Password = PasswordEncryptor.Encrypt(request.NewPassword);
 
         await userRepository.UpdateAsync(dbUser);
 
