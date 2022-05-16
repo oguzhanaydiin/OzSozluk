@@ -1,11 +1,6 @@
 ﻿using MediatR;
 using OzSozluk.Api.Application.Interfaces.Repositories;
 using OzSozluk.Common.Infrastructure.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OzSozluk.Api.Application.Features.Commands.User.ConfirmEmail;
 

@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 
 namespace OzSozluk.Api.WebApi.Controllers;
 [Route("api/[controller]")]

@@ -3,11 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using OzSozluk.Api.Domain.Models;
 using OzSozluk.Common.Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OzSozluk.Infrastructure.Persistence.Context;
 

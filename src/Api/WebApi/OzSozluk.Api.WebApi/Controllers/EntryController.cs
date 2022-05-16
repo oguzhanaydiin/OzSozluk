@@ -2,7 +2,6 @@
 using OzSozluk.Api.Application.Features.Queries.GetMainPageEntries;
 using OzSozluk.Common.Models.RequestModels;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace OzSozluk.Api.WebApi.Controllers;

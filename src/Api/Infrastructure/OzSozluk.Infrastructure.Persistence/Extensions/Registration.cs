@@ -4,11 +4,6 @@ using Microsoft.Extensions.DependencyInjection;
 using OzSozluk.Api.Application.Interfaces.Repositories;
 using OzSozluk.Infrastructure.Persistence.Context;
 using OzSozluk.Infrastructure.Persistence.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OzSozluk.Infrastructure.Persistence.Extensions;
 

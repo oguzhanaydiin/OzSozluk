@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OzSozluk.Api.Application.Interfaces.Repositories;
 using OzSozluk.Api.Domain.Models;
-using OzSozluk.Infrastructure.Persistence.Context;
 using System.Linq.Expressions;
 
 namespace OzSozluk.Infrastructure.Persistence.Repositories

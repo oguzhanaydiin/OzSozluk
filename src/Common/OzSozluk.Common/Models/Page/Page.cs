@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OzSozluk.Common.Models.Page;
+﻿namespace OzSozluk.Common.Models.Page;
 
 public class Page
 {
