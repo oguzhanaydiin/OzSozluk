@@ -1,5 +1,6 @@
 using FluentValidation.AspNetCore;
 using OzSozluk.Api.Application.Extensions;
+using OzSozluk.Api.WebApi.Infrastructure.ActionFilters;
 using OzSozluk.Api.WebApi.Infrastructure.Extensions;
 using OzSozluk.Infrastructure.Persistence.Extensions;
 
@@ -7,12 +8,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services
-    .AddControllers()
+    .AddControllers(opt => opt.Filters.Add<ValidateModelStateFilter>())
     .AddJsonOptions(opt =>
    {
        opt.JsonSerializerOptions.PropertyNamingPolicy = null;
    })
-    .AddFluentValidation();
+    .AddFluentValidation()
+        .ConfigureApiBehaviorOptions(o => o.SuppressModelStateInvalidFilter = true);
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

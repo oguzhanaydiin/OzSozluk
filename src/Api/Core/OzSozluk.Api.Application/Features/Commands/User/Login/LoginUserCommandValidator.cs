@@ -1,8 +1,7 @@
-﻿using FluentValidation;
-using OzSozluk.Common.Models.RequestModels;
+﻿using OzSozluk.Common.Models.RequestModels;
+using FluentValidation;
 
 namespace OzSozluk.Api.Application.Features.Commands.User;
-
 public class LoginUserCommandValidator : AbstractValidator<LoginUserCommand>
 {
     public LoginUserCommandValidator()
@@ -14,7 +13,6 @@ public class LoginUserCommandValidator : AbstractValidator<LoginUserCommand>
 
         RuleFor(i => i.Password)
             .NotNull()
-            .MinimumLength(6)
-            .WithMessage("{PropertyName} should at least be {MinLenght} characters");
+            .MinimumLength(6).WithMessage("{PropertyName} should at least be {MinLenght} characters");
     }
 }

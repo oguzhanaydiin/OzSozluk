@@ -7,6 +7,7 @@ using OzSozluk.Common.Models.RequestModels;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using OzSozluk.Api.Application.Features.Queries.GetUserEntries;
+using Microsoft.AspNetCore.Authorization;
 
 namespace OzSozluk.Api.WebApi.Controllers;
 [Route("api/[controller]")]
@@ -50,6 +51,7 @@ public class EntryController : BaseController
 
     [HttpGet]
     [Route("UserEntries")]
+    [Authorize]
     public async Task<IActionResult> GetUserEntries(string userName, Guid userId, int page, int pageSize)
     {
         if (userId == Guid.Empty && string.IsNullOrEmpty(userName))
@@ -72,6 +74,7 @@ public class EntryController : BaseController
 
     [HttpPost]
     [Route("CreateEntry")]
+    [Authorize]
     public async Task<IActionResult> CreateEntry([FromBody] CreateEntryCommand command)
     {
         if (!command.CreatedById.HasValue)
@@ -84,6 +87,7 @@ public class EntryController : BaseController
 
     [HttpPost]
     [Route("CreateEntryComment")]
+    [Authorize]
     public async Task<IActionResult> CreateEntryComment([FromBody] CreateEntryCommentCommand command)
     {
         if (!command.CreatedById.HasValue)

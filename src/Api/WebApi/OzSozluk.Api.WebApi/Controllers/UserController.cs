@@ -4,6 +4,7 @@ using OzSozluk.Common.Events.User;
 using OzSozluk.Common.Models.RequestModels;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace OzSozluk.Api.WebApi.Controllers;
 [Route("api/[controller]")]
@@ -45,6 +46,7 @@ public class UserController : BaseController
     }
 
     [HttpPost]
+    [Authorize]
     public async Task<IActionResult> Create([FromBody] CreateUserCommand command)
     {
         var guid = await mediator.Send(command);
@@ -54,6 +56,7 @@ public class UserController : BaseController
 
     [HttpPost]
     [Route("Update")]
+    [Authorize]
     public async Task<IActionResult> UpdateUser([FromBody] UpdateUserCommand command)
     {
         var guid = await mediator.Send(command);
@@ -72,6 +75,7 @@ public class UserController : BaseController
 
     [HttpPost]
     [Route("ChangePassword")]
+    [Authorize]
     public async Task<IActionResult> ChangePassword([FromBody] ChangeUserPasswordCommand command)
     {
         if (!command.UserId.HasValue)

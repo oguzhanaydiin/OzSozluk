@@ -4,11 +4,13 @@ using OzSozluk.Common.Models.RequestModels;
 using OzSozluk.Common.ViewModels;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace OzSozluk.Api.WebApi.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class VoteController : BaseController
 {
     private readonly IMediator mediator;

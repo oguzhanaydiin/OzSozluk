@@ -1,4 +1,6 @@
 ﻿using Blazored.LocalStorage;
+using Microsoft.AspNetCore.Components.Authorization;
+using OzSozluk.Clients.BlazorWeb.Infrastructure.Auth;
 using OzSozluk.Clients.BlazorWeb.Infrastructure.Extensions;
 using OzSozluk.Clients.BlazorWeb.Infrastructure.Services.Interfaces;
 using OzSozluk.Common.Infrastructure.Exceptions;
@@ -14,12 +16,13 @@ public class IdentityService : IIdentityService
 {
     private readonly HttpClient httpClient;
     private readonly ISyncLocalStorageService syncLocalStorageService;
+    private readonly AuthenticationStateProvider authenticationStateProvider;
 
-
-    public IdentityService(HttpClient httpClient, ISyncLocalStorageService syncLocalStorageService)
+    public IdentityService(HttpClient httpClient, ISyncLocalStorageService syncLocalStorageService, AuthenticationStateProvider authenticationStateProvider)
     {
         this.httpClient = httpClient;
         this.syncLocalStorageService = syncLocalStorageService;
+        this.authenticationStateProvider = authenticationStateProvider;
     }
 
 
@@ -68,8 +71,8 @@ public class IdentityService : IIdentityService
             syncLocalStorageService.SetUsername(response.UserName);
             syncLocalStorageService.SetUserId(response.Id);
 
-            //TODO Check after auth
-            //((AuthStateProvider)authStateProvider).NotifyUserLogin(response.UserName, response.Id);
+            //kullanici login edildiginde
+            ((AuthStateProvider)authenticationStateProvider).NotifyUserLogin(response.UserName, response.Id);
 
             httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("bearer", response.UserName);
 
@@ -85,8 +88,8 @@ public class IdentityService : IIdentityService
         syncLocalStorageService.RemoveItem(LocalStorageExtension.UserName);
         syncLocalStorageService.RemoveItem(LocalStorageExtension.UserId);
 
-        // TODO Check after auth
-        //((AuthStateProvider)authStateProvider).NotifyUserLogout();
+        //kullanici logout edildiginde
+        ((AuthStateProvider)authenticationStateProvider).NotifyUserLogout();
         httpClient.DefaultRequestHeaders.Authorization = null;
     }
 }
